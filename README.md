@@ -1,7 +1,7 @@
 # blogRESTful-Server
 
 This is a repository for a basic node/express/mongodb project.
-It contains necessary RESTful api's.
+It contains necessary RESTful api's for a simple blog application.
 
 It comprises of the following API's
 
