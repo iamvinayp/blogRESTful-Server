@@ -12,6 +12,7 @@ var dbPath = "mongodb://localhost/myblogapp";
 
 //connecting to database
 var db = mongoose.connect(dbPath, { useMongoClient: true });
+
 mongoose.connection.once('open', function(){
     console.log("Database connection established !!");
 });
