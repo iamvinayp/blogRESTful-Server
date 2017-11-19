@@ -12,6 +12,10 @@ var port = process.env.PORT || 3000;
 //loading required middlewares
 //body parsing middleware
 var bodyParser = require('body-parser');
+//error handler middleware
+var errorHandler = require('./api/middlewares/errorHandler.js');
+//wrong route redirection middleware
+var blogsWrongRoute = require('./api/middlewares/wrongRoute.js');
 
 //parse application/json
 app.use(bodyParser.json({limit:'10mb',extended:true}));
@@ -26,10 +30,11 @@ var blogsRoutes = require('./api/routes/blogsRoutes.js');
 //initialize routes
 app.use('/api', blogsRoutes);
 
-//middleware - redirect and respond for wrong routes
-app.use('*', function(req, res){
-    res.status(404).send({url: req.originalUrl + ' not found'});
-});
+//register/initialise middleware for redirection of wrong routes
+app.use('*', blogsWrongRoute.checkRoute);
+
+//register/initialise error handling middleware
+app.use(errorHandler.handleError);
 
 //listening on defined port no
 app.listen(port, function(){
