@@ -12,7 +12,7 @@ var exports = module.exports = {};
 exports.getAllBlogs = function (req, res, next){
 	blogsModel.find({}, function(err, blogs){
 		if (err) {
-			next();
+			next(err);
 			// console.log(err);
 			// var response = responseLib.responseGenerate(null, 500, true, 'Failed to fetch blogs details');
 			// // var response = { data: null, status: 500, error: true, message: 'Failed to fetch blogs details'};
@@ -51,7 +51,7 @@ exports.createBlog = function (req, res, next){
 	else {
 		newBlog.save(function(err, blog){
 			if (err) {
-				next();
+				next(err);
 				// console.log(err);
 				// var response = responseLib.responseGenerate(null, 500, true, 'Failed to create a blog');
 				// // var response = { data: null, status: 500, error: true, message: 'Failed to create a blog'};
@@ -70,7 +70,7 @@ exports.createBlog = function (req, res, next){
 exports.loadBlog = function (req, res, next){
 		blogsModel.findOne({'_id': req.params.id}, function(err, blog){
 			if (err) {
-				next();
+				next(err);
 				// console.log(err);
 				// var response = responseLib.responseGenerate(null, 500, true, 'Failed to fetch the blog');
 				// // var response = { data: null, status: 500, error: true, message: 'Failed to fetch the blog'};
@@ -103,7 +103,7 @@ exports.updateBlog = function (req, res, next){
 		else {
 			blogsModel.findOneAndUpdate({'_id': req.params.id}, updates, { new: true }, function(err, blog){
 				if (err) {
-					next();
+					next(err);
 					// console.log(err);
 					// var response = responseLib.responseGenerate(null, 500, true, 'Failed to edit the blog');
 					// // var response = { data: null, status: 500, error: true, message: 'Failed to edit the blog'};
@@ -128,7 +128,7 @@ exports.updateBlog = function (req, res, next){
 exports.deleteBlog = function (req, res, next){
 		blogsModel.remove({'_id': req.params.id}, function(err, blog){
 			if (err) {
-				next();
+				next(err);
 				// console.log(err);
 				// var response = responseLib.responseGenerate(null, 500, true, 'Failed to delete the blog');
 				// // var response = { data: null, status: 500, error: true, message: 'Failed to delete the blog'};
