@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 
-// var blogsModel = require('../models/blogsModel.js');
 var blogsController = require('../controllers/blogsController.js');
 
 //defining/mounting all the route handlers on the router instance

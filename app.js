@@ -24,7 +24,7 @@ app.use(bodyParser.json({limit:'10mb',extended:true}));
 app.use(bodyParser.urlencoded({limit:'10mb',extended:true}));
 
 //loading other required modules
-var dbConnection = require('./api/config/dbConnection.js')
+var dbConnection = require('./api/config/dbConnection.js');
 var blogsRoutes = require('./api/routes/blogsRoutes.js');
 
 //initialize routes

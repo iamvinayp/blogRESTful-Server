@@ -4,7 +4,7 @@
 var blogsModel = require('../models/blogsModel.js');
 var responseLib = require('../libs/responseLib.js');
 
-//declaring a module
+//declaring an object
 var exports = module.exports = {};
 
 //definitions of all the route handlers
@@ -31,7 +31,7 @@ exports.getAllBlogs = function (req, res, next){
 			res.send(response);
 		}
 	});
-}// end getBlogs()
+}// end getAllBlogs()
 
 exports.createBlog = function (req, res, next){
 
